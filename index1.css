@@ -1,0 +1,387 @@
+body{
+    background-color: #00101d;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+.navbar{
+    box-shadow: #00ccff8d 0px 2px 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: 0.3s ease;
+}
+.navbar.scrolled {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 10px rgba(0, 204, 255, 0.2);
+}
+.nav-container{
+    background-color: #0013224d;
+    color: #FFFFFF;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 10px;
+    flex-flow: row wrap;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.nav-links{
+    display: flex;
+    gap: 50px;
+    margin-right: 100px;
+}
+ul{
+    list-style: none;
+}
+.nav-link{
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease;
+}
+.nav-logo{
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ccff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    white-space: nowrap;
+}
+
+
+.nav-links a:hover{
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: #00e5ff;
+    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset : 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.nav-linkat{
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: #00e5ff;
+    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset : 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.content-section {
+    display: flex;
+    justify-content: center; 
+    padding: 40px 20px;
+}
+
+.text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 6px; 
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    max-width: 700px; 
+    color: #fff;
+    padding-top: 30px;
+    padding-right: 500px;
+    margin-left: 250px;
+}
+.text-group h1 {
+    font-size: 72px;
+    letter-spacing: -4px;
+    line-height: 70px;
+}
+.text-group span {
+    color: #00ccff;
+}
+.text-group p {
+    font-size: 20px;
+    letter-spacing: 8px;
+    margin-top: -50px;
+    color: rgb(203, 203, 203);
+    font-weight: 400;
+    margin-left: 10px;
+}
+footer {
+    background-color: #001322;
+    color: #a4a4a4;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    padding: 20px;
+    margin-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+main {
+    min-height: 400px;
+    flex: 1;
+    margin-top: 64px;
+}
+
+.input-section {
+    width: 880px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    background: #071a24;
+    border-radius: 12px;
+    padding: 8px 20px 8px 8px; /* زودنا اليمين */
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.63);
+
+}
+
+.input-task  {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ccc;
+    font-size: 16px;
+    padding: 12px;
+    }
+
+.input-task::placeholder {
+    color: #a2a2a2;
+}
+
+.add-btn {
+    background: #00ccff;
+    color: rgb(0, 26, 49);
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 50px;
+    transition: all 0.3s ease;
+}
+.add-btn:hover {
+    width: 40px;
+    height: 40px;
+    box-shadow: #00ccff8d 0px 2px 10px;
+}
+
+/* container */
+.task {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 300px;
+    margin-top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+
+/* نخفي الشكل الأصلي */
+.task input {
+    display: none;
+
+}
+
+/* الدائرة */
+.checkmark {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #00c8ff;
+    display: inline-block;
+    position: relative;
+    transition: 0.3s;
+}
+
+.task input:checked + .checkmark {
+    background: #00c8ff;
+    box-shadow: 0 0 10px #00c8ff;
+    color: #9f9f9f;
+}
+
+/* علامة الصح */
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* اظهار الصح */
+.task input:checked + .checkmark::after {
+    display: block;
+}
+
+/* شكل الصح */
+.task .checkmark::after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid #002733;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.task input:checked ~ .task-text {
+    color: #5c6f7a;
+    transition: ease 0.5s;
+    text-decoration: line-through;
+}
+
+.delete-btn {
+    margin-left: auto;
+    background: transparent;
+    margin-right: 300px;
+    border: none;
+    color: #ff4d4d;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    color: #ff0000;
+    transform: scale(1.2);
+    text-shadow: 0 0 8px #ff4d4d;
+}
+
+.task {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: 0.4s ease;
+}
+
+/* لما تظهر */
+.task.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* حذف */
+.task.remove {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: 0.3s ease;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* TABLET (1100px) */
+@media (max-width: 1100px) {
+
+  .nav-container {
+    padding: 0 20px;
+  }
+
+  .content-section h1 {
+    font-size: 42px;
+  }
+
+  .input-task {
+    width: 70%;
+  }
+
+  .task {
+    width: 90%;
+  }
+}
+
+
+/* MOBILE (768px) */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .nav-links {
+    gap: 15px;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+  }
+
+  /* TITLE SECTION */
+  .content-section {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .content-section h1 {
+    font-size: 32px;
+  }
+
+  .content-section p {
+    font-size: 14px;
+  }
+
+  /* INPUT SECTION */
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .input-task {
+    width: 90%;
+  }
+
+  .add-btn {
+    width: 90%;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  /* TASKS */
+  .task {
+    width: 95%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .task-text {
+    font-size: 14px;
+  }
+
+  .delete-btn {
+    font-size: 14px;
+  }
+
+  /* FOOTER */
+  footer {
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+  }
+}
